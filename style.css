@@ -1,0 +1,280 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+    overflow: hidden;
+}
+#map {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 80px);
+    background-image: url('assets/map_background.png');
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+/* 야간 모드 시 맵 어둡게 */
+#map.night-mode {
+    filter: brightness(0.5);
+}
+
+/* 플레이어 마커 */
+#player-marker {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: red;
+    border: 2px solid #fff;
+    /* 초기 위치는 좌측 상단. JavaScript에서 GPS에 따라 top/left 설정 */
+    top: 0;
+    left: 0;
+    transform: none;
+    z-index: 101;
+}
+
+.gps-info, #gps-info {
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    z-index: 100;
+}
+.insect {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    user-select: none;
+    border-radius: 50%;
+}
+
+/* 아이템 박스 스타일 */
+.item {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    z-index: 102;
+}
+#menu {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background: #ffffff;
+    border-top: 1px solid #ccc;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+#menu button {
+    padding: 10px 20px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* 도감 모달 스타일 */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+}
+
+.modal-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.modal-content li {
+    margin: 4px 0;
+}
+
+/* 포획(가위바위보) 모달 스타일 */
+.capture-content .rps-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.capture-content .rps-buttons button {
+    padding: 10px 20px;
+    background: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.capture-content .capture-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.capture-content .capture-info img {
+    width: 60px;
+    height: 60px;
+    margin-right: 10px;
+    border-radius: 6px;
+}
+
+.capture-result {
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* 가방 모달 스타일 */
+.bag-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.bag-content li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 6px 0;
+    padding: 4px 6px;
+    background: #f6f6f6;
+    border-radius: 4px;
+}
+
+.bag-content li button {
+    padding: 4px 8px;
+    background: #ffc107;
+    border: none;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+/* 도감 상세 보기 */
+.dex-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 8px;
+}
+.dex-item img {
+    width: 40px;
+    height: 40px;
+    margin-right: 8px;
+    border-radius: 4px;
+}
+.dex-item .dex-info {
+    display: flex;
+    flex-direction: column;
+}
+.dex-item .dex-info span {
+    font-size: 14px;
+}
+.dex-item .dex-info .dex-desc {
+    font-size: 12px;
+    color: #666;
+}
+
+/* 새로운 도감 페이지 스타일 */
+.dex-content {
+    width: 100%;
+    max-width: 600px;
+}
+
+.dex-view {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.dex-view img {
+    width: auto;
+    height: 30vh;
+    max-height: 200px;
+    object-fit: contain;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.dex-info h3 {
+    margin: 0;
+    font-size: 20px;
+    text-align: center;
+}
+.dex-info p {
+    margin: 4px 0;
+    font-size: 16px;
+    text-align: center;
+}
+
+.dex-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.dex-nav button {
+    padding: 6px 14px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.dex-nav span {
+    font-size: 14px;
+}
+
+/* 설정 모달 스타일 */
+.settings-content label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.settings-info {
+    font-size: 12px;
+    color: #666;
+    margin-top: 8px;
+}

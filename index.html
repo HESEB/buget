@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insect Collector Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="map">
+        <div id="gps-info">GPS: 위치 확인 중...</div>
+        <!-- 플레이어 위치를 나타내는 마커 -->
+        <div id="player-marker"></div>
+    </div>
+    <div id="menu">
+        <button id="dexBtn">도감</button>
+        <button id="bagBtn">가방</button>
+        <button id="settingsBtn">설정</button>
+    </div>
+    <!-- 도감 모달 (한 곤충씩 페이지 형태) -->
+    <div id="dex-modal" class="modal hidden">
+        <div class="modal-content dex-content">
+            <h2>도감</h2>
+            <div id="dex-view" class="dex-view">
+                <img id="dex-image" src="" alt="곤충 이미지">
+                <div id="dex-info" class="dex-info">
+                    <h3 id="dex-name"></h3>
+                    <p id="dex-desc"></p>
+                    <p id="dex-count"></p>
+                </div>
+            </div>
+            <div class="dex-nav">
+                <button id="prevDex">이전</button>
+                <span id="dex-page">0 / 0</span>
+                <button id="nextDex">다음</button>
+            </div>
+            <button id="closeDex">닫기</button>
+        </div>
+    </div>
+
+    <!-- 캡처(가위바위보) 모달 -->
+    <div id="capture-modal" class="modal hidden">
+        <div class="modal-content capture-content">
+            <h2 id="capture-title">포획 시도</h2>
+            <div id="capture-insect-info" class="capture-info">
+                <!-- 선택한 곤충 이미지와 이름이 동적으로 채워집니다 -->
+            </div>
+            <p>가위, 바위, 보 중 하나를 선택하세요 (포획 성공 확률 30%)</p>
+            <div id="rps-buttons" class="rps-buttons">
+                <button class="rps" data-choice="rock">바위</button>
+                <button class="rps" data-choice="paper">보</button>
+                <button class="rps" data-choice="scissors">가위</button>
+            </div>
+            <p id="capture-result" class="capture-result"></p>
+            <button id="closeCapture">닫기</button>
+        </div>
+    </div>
+
+    <!-- 가방 모달 -->
+    <div id="bag-modal" class="modal hidden">
+        <div class="modal-content bag-content">
+            <h2>가방</h2>
+            <ul id="bag-list" class="bag-list"></ul>
+            <button id="closeBag">닫기</button>
+        </div>
+    </div>
+
+    <!-- 설정 모달 -->
+    <div id="settings-modal" class="modal hidden">
+        <div class="modal-content settings-content">
+            <h2>설정</h2>
+            <label><input type="checkbox" id="soundToggle"> 사운드 효과</label><br>
+            <label><input type="checkbox" id="nightModeToggle"> 야간 모드</label>
+            <p id="settings-info" class="settings-info"></p>
+            <button id="closeSettings">닫기</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
