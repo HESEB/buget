@@ -1,0 +1,24 @@
+:root {
+  --bg: #07111e;
+  --panel: rgba(255, 255, 255, 0.88);
+  --text: #101522;
+}
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; background: var(--bg); font-family: system-ui, -apple-system, 'Noto Sans KR', sans-serif; }
+button { font: inherit; touch-action: manipulation; border: 0; cursor: pointer; }
+#app { position: fixed; inset: 0; overflow: hidden; }
+.screen { position: absolute; inset: 0; display: none; }
+.screen.active { display: block; }
+#titleScreen { color: white; background: radial-gradient(circle at 50% 28%, rgba(130,247,193,.28), transparent 30%), linear-gradient(#15345a, #07111e); }
+.hero { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; text-align: center; gap: 14px; padding: 32px 18px; }
+h1 { margin: 0; font-size: 42px; font-weight: 1000; text-shadow: 0 12px 28px rgba(0,0,0,.6); }
+p { margin: 0; color: rgba(255,255,255,.78); font-weight: 800; }
+#startBtn { min-width: 230px; padding: 15px 22px; border-radius: 18px; font-weight: 1000; color: var(--text); background: linear-gradient(120deg, #82f7c1, #6bb2ff, #a573ed); box-shadow: 0 16px 34px rgba(0,0,0,.35); }
+#fieldScreen { background: #72c978; }
+#gameCanvas { width: 100%; height: 100%; display: block; touch-action: none; }
+.hud { position: absolute; z-index: 10; pointer-events: none; }
+.hud.top { left: 10px; right: 10px; top: 10px; display: flex; justify-content: space-between; gap: 8px; }
+.hud.bottom { left: 0; right: 0; bottom: 0; padding: 12px; display: flex; justify-content: center; gap: 8px; }
+.panel, .hud button { pointer-events: auto; border-radius: 16px; background: var(--panel); color: var(--text); padding: 10px 12px; font-weight: 1000; box-shadow: 0 12px 26px rgba(0,0,0,.22); }
+.panel span { display: block; font-size: 11px; opacity: .65; margin-top: 2px; }
+@media (min-width: 860px) { #app { max-width: 430px; margin: 0 auto; box-shadow: 0 32px 80px rgba(0,0,0,.55); } }
