@@ -21,4 +21,6 @@ p { margin: 0; color: rgba(255,255,255,.78); font-weight: 800; }
 .hud.bottom { left: 0; right: 0; bottom: 0; padding: 12px; display: flex; justify-content: center; gap: 8px; }
 .panel, .hud button { pointer-events: auto; border-radius: 16px; background: var(--panel); color: var(--text); padding: 10px 12px; font-weight: 1000; box-shadow: 0 12px 26px rgba(0,0,0,.22); }
 .panel span { display: block; font-size: 11px; opacity: .65; margin-top: 2px; }
+.radarNotice { position: absolute; left: 50%; top: 86px; transform: translateX(-50%) translateY(-8px); z-index: 12; padding: 10px 14px; border-radius: 999px; background: rgba(0,0,0,.58); color: white; font-weight: 1000; font-size: 13px; opacity: 0; transition: opacity .22s ease, transform .22s ease; pointer-events: none; white-space: nowrap; box-shadow: 0 12px 26px rgba(0,0,0,.28); }
+.radarNotice.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 @media (min-width: 860px) { #app { max-width: 430px; margin: 0 auto; box-shadow: 0 32px 80px rgba(0,0,0,.55); } }
